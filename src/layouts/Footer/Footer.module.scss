@@ -1,0 +1,23 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+
+.footer {
+  background: var(--color-blue-dark);
+
+  &Inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    row-gap: fluid(60, 30);
+    font-size: fluid(20, 16);
+    padding-block: fluid(50, 30);
+    color: var(--color-white);
+  }
+
+  &Link {
+    color: var(--color-pumpkin);
+
+    &:hover {
+      color: var(--color-white);
+    }
+  }
+}

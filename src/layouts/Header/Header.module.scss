@@ -1,0 +1,96 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/mixins.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
+
+.header {
+  letter-spacing: rem(2);
+
+  @include mobile {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation-name: scrolling-header;
+    animation-fill-mode: both;
+    animation-timeline: scroll();
+    animation-range: rem(100) rem(200);
+
+    @keyframes scrolling-header {
+      to {
+        box-shadow: 0 0 1rem 0 var(--color-total-black);
+      }
+    }
+  }
+
+  &Inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: fluid(87, 10);
+    padding-inline: fluid(38, 10);
+    padding-block: fluid(27, 13);
+
+    @include mobile {
+      justify-content: space-between;
+      background: var(--color-white);
+    }
+  }
+
+  &Overlay {
+    @include mobile-above {
+      display: contents;
+    }
+
+    @include mobile {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      row-gap: 3rem;
+      padding: 1rem;
+      background-color: var(--color-blue-dark);
+      transition-duration: var(--transition-duration);
+
+      &:not(.isActive) {
+        @include hide;
+
+        translate: 100%;
+      }
+    }
+  }
+
+  &Menu {
+    display: flex;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    &List {
+      display: flex;
+      align-items: center;
+      column-gap: fluid(87, 5);
+
+      @include mobile {
+        flex-direction: column;
+        row-gap: rem(36);
+      }
+    }
+
+    &Link {
+      color: var(--color-blue-dark);
+      font-size: fluid(40, 10);
+      font-weight: 600;
+
+      @include mobile {
+        font-size: fluid(40, 24);
+        color: var(--color-white);
+      }
+
+      &:hover {
+        color: var(--color-pumpkin);
+      }
+    }
+  }
+}

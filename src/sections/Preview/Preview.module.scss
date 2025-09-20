@@ -1,0 +1,45 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/mixins.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
+
+.preview {
+  height: 100vh;
+  line-height: 1.4;
+  max-height: rem(970);
+  background-image:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%),
+    url("../../assets/images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  padding-block: fluid(150, 80);
+
+  &Inner {
+    width: 100%;
+  }
+
+  &Body {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(25, 10);
+    max-width: rem(1130);
+    color: var(--color-white);
+    text-shadow: var(--text-shadow);
+  }
+
+  &Title {
+    font-family: var(--font-family-base), sans-serif;
+    font-weight: 600;
+    font-size: fluid(40, 24);
+
+    .isOrange {
+      color: var(--color-pumpkin);
+    }
+  }
+
+  &Description {
+    font-size: fluid(24, 16);
+  }
+}

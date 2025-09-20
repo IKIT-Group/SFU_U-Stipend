@@ -1,0 +1,25 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/mixins.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
+
+.sources {
+  color: var(--color-blue-dark);
+
+  &Inner {
+    padding-bottom: fluid(200, 100);
+    padding-top: fluid(50, 30);
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(60, 40);
+  }
+
+  &Title {
+    font-size: fluid(64, 40);
+    letter-spacing: rem(1.92);
+  }
+
+  &Description {
+    font-size: fluid(36, 20);
+    letter-spacing: rem(1.08);
+  }
+}

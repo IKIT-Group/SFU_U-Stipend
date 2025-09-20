@@ -1,0 +1,14 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/mixins.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
+
+.logo {
+  font-size: fluid(40, 10);
+  color: var(--color-pumpkin);
+  font-family: var(--font-family-accent), sans-serif;
+  font-weight: 400;
+
+  @include mobile {
+    font-size: fluid(40, 24);
+  }
+}

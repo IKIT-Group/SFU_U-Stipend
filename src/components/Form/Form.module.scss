@@ -1,0 +1,222 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/mixins.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
+
+.form {
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: fluid(20, 10);
+  padding: fluid(30, 20) fluid(40, 15);
+  border-radius: rem(10);
+  color: var(--color-blue-dark);
+  align-self: flex-start;
+
+  @include middle {
+    align-self: auto;
+  }
+
+  &Section {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(20, 10);
+    align-self: stretch;
+
+    &:not(:last-of-type) {
+      border-bottom: rem(2) solid var(--color-blue-dark);
+      padding-bottom: rem(20);
+    }
+
+    @include mobile-s {
+      align-self: auto;
+    }
+  }
+
+  &Legend {
+    margin-bottom: fluid(20, 10);
+    font-size: fluid(20, 12);
+    font-weight: 600;
+    background-color: var(--color-pumpkin);
+    color: var(--color-white);
+    padding: rem(6) rem(8);
+
+    @include laptop {
+      padding: rem(4) rem(6);
+    }
+  }
+
+  &Text {
+    font-weight: 600;
+    font-size: fluid(20, 16);
+  }
+
+  &Group {
+    &3Rows {
+      display: flex;
+      flex-direction: column;
+      column-gap: fluid(40, 25);
+      row-gap: rem(10);
+      flex-wrap: wrap;
+    }
+  }
+
+  &Select {
+    appearance: none;
+    background: #d6e3ff;
+    color: #002f6c;
+    padding: rem(6) rem(35) rem(6) rem(12); // увеличил отступ справа
+    font-size: fluid(20, 12);
+    border-radius: rem(10);
+    border: none;
+    width: 100%;
+    cursor: pointer;
+
+    @include mobile-s {
+      width: 100%;
+    }
+
+    &Wrapper {
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: rem(12);
+        transform: translateY(-50%);
+        background: url("../../assets/icons/arrow-dropdown.svg") no-repeat center;
+        background-size: contain;
+        width: rem(12);
+        height: rem(12);
+        pointer-events: none; // чтобы стрелка не мешала клику
+      }
+    }
+  }
+
+  &Buttons {
+    display: flex;
+    column-gap: fluid(15, 10);
+  }
+
+  &Button {
+    border: none;
+    border-radius: rem(10);
+    background-color: var(--color-blue-sky);
+    padding: rem(6) rem(25);
+    color: var(--color-blue-dark);
+    font-size: fluid(20, 12);
+    line-height: 1.4;
+
+    &.isActive {
+      background-color: var(--color-blue-dark);
+      color: var(--color-background);
+      font-weight: 600;
+      cursor: default;
+    }
+  }
+
+  &Field {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(5);
+  }
+
+  &Input {
+    -webkit-appearance: none;
+    background: #d6e3ff;
+    color: #002f6c;
+    padding: rem(6) rem(30) rem(6) rem(12); // увеличил отступ справа
+    font-size: fluid(20, 12);
+    border-radius: rem(10);
+    border: none;
+    width: 100%;
+    cursor: pointer;
+
+    &::placeholder {
+      color: #002f6c;
+    }
+  }
+
+  &Label {
+    font-weight: 600;
+    font-size: fluid(20, 14);
+
+    &Star {
+      color: var(--color-pumpkin);
+    }
+  }
+
+  &Submit {
+    background-color: var(--color-pumpkin);
+    border: none;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    padding: rem(8.5) rem(12.5);
+    border-radius: rem(10);
+    font-size: fluid(20, 16);
+    font-weight: 600;
+    justify-content: center;
+  }
+
+  &Checkboxes {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(5);
+  }
+
+  &Checkbox {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    column-gap: rem(10);
+    width: 100%;
+
+    @include laptop {
+      column-gap: rem(6);
+    }
+
+    @include hover {
+      color: var(--color-pumpkin);
+
+      .formCheckboxInput {
+        border-color: var(--color-pumpkin);
+      }
+    }
+
+    &Input {
+      --size: #{rem(23)};
+
+      @include square(var(--size));
+      @include flex-center;
+
+      appearance: none;
+      margin: 0;
+      background-color: var(--color-blue-sky);
+      border-radius: rem(4);
+
+      @include laptop {
+        --size: #{rem(18)};
+      }
+
+      &:not(:checked) {
+        &::after {
+          @include hide;
+        }
+      }
+
+      &::after {
+        content: "✔";
+        color: var(--color-blue-dark);
+        transition-duration: var(--transition-duration);
+      }
+    }
+
+    &Label {
+      font-size: fluid(20, 10);
+      font-weight: 600;
+    }
+  }
+}

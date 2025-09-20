@@ -1,0 +1,44 @@
+@use './helpers/functions' as *;
+
+html {
+  &.is-lock {
+    overflow: hidden;
+  }
+}
+
+body {
+  font-family: var(--font-family-base), sans-serif;
+  line-height: 1.5;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: var(--font-family-accent), sans-serif;
+  font-weight: 400;
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transitiom-duration);
+}
+
+a {
+  &[class] {
+    text-decoration: none;
+  }
+}
+
+:focus-visible {
+  outline: rem(2) dashed var(--color-black);
+  outline-offset: rem(4);
+  transition-duration: 0s !important;
+}

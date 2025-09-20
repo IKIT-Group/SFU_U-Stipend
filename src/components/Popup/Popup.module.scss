@@ -1,0 +1,40 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/mixins.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(10);
+  border-radius: rem(10);
+  border: none;
+  background: var(--color-background);
+  padding: rem(10) rem(15);
+  box-shadow: var(--shadow);
+  max-width: fluid(477, 240);
+
+  &Title {
+    font-size: fluid(20, 14);
+    font-weight: 600;
+  }
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(10);
+  }
+
+  &Item {
+    display: flex;
+    align-items: center;
+    column-gap: rem(10);
+  }
+
+  &Text {
+    font-size: fluid(20, 12);
+  }
+
+  &Image {
+    width: fluid(56, 30);
+  }
+}

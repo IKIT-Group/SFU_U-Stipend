@@ -1,0 +1,42 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/mixins.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
+
+.calculator {
+  background-color: var(--color-blue-dark);
+  padding-bottom: fluid(200, 100);
+  padding-top: fluid(50, 30);
+
+  &Inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(60, 30);
+  }
+
+  &Title {
+    font-size: fluid(64, 40);
+    color: var(--color-white);
+  }
+
+  &Windows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: rem(20);
+
+    @include middle {
+      display: flex;
+      row-gap: rem(20);
+      flex-direction: column;
+    }
+  }
+
+  &Result {
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(20, 10);
+    padding: fluid(30, 20) fluid(40, 30);
+    border-radius: rem(10);
+    color: var(--color-blue-dark);
+  }
+}
