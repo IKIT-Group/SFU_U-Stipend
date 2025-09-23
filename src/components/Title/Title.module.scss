@@ -1,0 +1,10 @@
+@use "/src/app/styles/helpers/functions.scss" as *;
+
+.title {
+  font-size: fluid(64, 32);
+  letter-spacing: rem(1.92);
+
+  &IsWhite {
+    color: var(--color-white);
+  }
+}

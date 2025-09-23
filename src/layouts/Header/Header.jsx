@@ -2,7 +2,7 @@ import styles from './Header.module.scss'
 import clsx from "clsx";
 import BurgerButton from "../../components/BurgerButton/BurgerButton.jsx";
 import Logo from "../../components/Logo/index.js";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const Header = () => {
   const [openMenu, setOpenMenu] = useState(false)
@@ -11,46 +11,64 @@ const Header = () => {
     setOpenMenu(prev => !prev)
   }
 
+  const closeMenu = () => {
+    setOpenMenu(false)
+  }
+
+  const menuItems = [
+    {
+      id: 1,
+      href: "#calculator",
+      title: "Калькулятор",
+    },
+    {
+      id: 2,
+      href: "#help",
+      title: "Помощь",
+    },
+    {
+      id: 3,
+      href: "#documents",
+      title: "Документы",
+    },
+    {
+      id: 4,
+      href: "#about",
+      title: "О проекте",
+    },
+  ]
+
+  useEffect(() => {
+    const html = document.documentElement
+
+    if (openMenu) {
+      html.classList.add('is-lock')
+    } else {
+      html.classList.remove('is-lock')
+    }
+
+    return () => html.classList.remove("is-lock");
+  }, [openMenu]);
+
   return (
     <header
       id="header"
       className={styles.header}
     >
       <div className={clsx(styles.headerInner, 'container')}>
-        <Logo className={styles.headerMenuLink}></Logo>
+        <Logo className={styles.headerMenuLink} />
         <div
           className={clsx(styles.headerOverlay, openMenu && styles.isActive)}
         >
           <nav className={styles.headerMenu}>
             <ul className={styles.headerMenuList}>
-              <li className={styles.headerMenuItem}>
-                <a
-                  href="#calculator"
-                  className={styles.headerMenuLink}
-                >Калькулятор
-                </a>
-              </li>
-              <li className={styles.headerMenuItem}>
-                <a
-                  href="#help"
-                  className={styles.headerMenuLink}
-                >Помощь
-                </a>
-              </li>
-              <li className={styles.headerMenuItem}>
-                <a
-                  href="#documents"
-                  className={styles.headerMenuLink}
-                >Документы
-                </a>
-              </li>
-              <li className={styles.headerMenuItem}>
-                <a
-                  href="#about"
-                  className={styles.headerMenuLink}
-                >О проекте
-                </a>
-              </li>
+              {menuItems.map(({ id, href, title }) => (
+                <li key={id}>
+                  <a href={href} className={styles.headerMenuLink} onClick={closeMenu}>
+                    {title}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>

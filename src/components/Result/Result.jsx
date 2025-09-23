@@ -8,8 +8,7 @@ const Result = (props) => {
     className
   } = props
 
-  return (
-    <aside
+  return (<aside
       className={clsx(className, styles.result)}
       data-js-result
     >
@@ -45,7 +44,7 @@ const Result = (props) => {
             />
           </svg>
         </p>
-        <Popup className={styles.resultPopup} />
+        <Popup className={clsx(styles.resultPopup, 'visually-hidden')} />
       </div>
       <ul
         className={clsx(styles.resultList, styles.resultBlock)}
@@ -128,8 +127,7 @@ const Result = (props) => {
         </a
         >
       </div>
-    </aside>
-  );
+    </aside>);
 };
 
 export default Result;

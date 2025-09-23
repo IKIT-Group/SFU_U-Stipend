@@ -11,7 +11,8 @@ const Logo = (props) => {
     <a
       href="/"
       className={clsx(className, styles.logo)}
-    >U∙Stipend
+    >
+      U∙Stipend
     </a>
   );
 };

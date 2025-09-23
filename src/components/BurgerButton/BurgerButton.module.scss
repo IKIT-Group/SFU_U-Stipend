@@ -3,7 +3,7 @@
 @use "/src/app/styles/helpers/media.scss" as *;
 
 .burgerButton {
-  @include square(rem(34));
+  @include square(rem(44));
 
   display: inline-flex;
   flex-direction: column;
@@ -11,10 +11,12 @@
   padding: rem(8.5) rem(4.25);
   color: var(--color-black);
   background-color: transparent;
-  border: none;
+  border: 2px solid var(--color-black);
+  border-radius: rem(8);
 
   @include hover{
     color: var(--color-pumpkin);
+    border-color: var(--color-pumpkin);
   }
 
   &.isActive {
@@ -40,7 +42,7 @@
   &Line {
     background-color: currentColor;
     width: 100%;
-    height: rem(2);
+    height: rem(3);
     border-radius: 1rem;
     transition-duration: var(--transition-duration);
 

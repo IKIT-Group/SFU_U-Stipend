@@ -6,20 +6,15 @@
   color: var(--color-blue-dark);
 
   &Inner {
-    padding-bottom: fluid(200, 100);
+    padding-bottom: fluid(100, 30);
     padding-top: fluid(50, 30);
     display: flex;
     flex-direction: column;
     row-gap: fluid(60, 40);
   }
 
-  &Title {
-    font-size: fluid(64, 40);
-    letter-spacing: rem(1.92);
-  }
-
   &Description {
-    font-size: fluid(36, 20);
+    font-size: fluid(36, 16);
     letter-spacing: rem(1.08);
   }
 }

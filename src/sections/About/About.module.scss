@@ -12,14 +12,8 @@
     padding-block: fluid(50, 30);
   }
 
-  &Title {
-    font-size: fluid(64, 40);
-    letter-spacing: rem(1.92);
-  }
-
   &Description {
-    font-size: fluid(36, 20);
-    font-family: var(--font-family-base), sans-serif;
+    font-size: fluid(36, 16);
     letter-spacing: rem(1.08);
   }
 

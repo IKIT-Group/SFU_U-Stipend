@@ -91,13 +91,33 @@ const Form = (props) => {
                 className={styles.formSelect}
                 name="direction"
               >
-                <option
-                  defaultValue=''
-                  disabled
-                  hidden
-                  value=""
-                >
+                <option selected disabled hidden value="">
                   Выберите направление подготовки
+                </option>
+                <option>01.03.04 Прикладная математика</option>
+                <option>
+                  09.03.01 Информатика и вычислительная техника
+                </option>
+                <option>
+                  09.03.02 Информационные системы и технологии
+                </option>
+                <option>09.03.03 Прикладная информатика</option>
+                <option>09.03.04 Программная инженерия</option>
+                <option>10.03.01 Информационная безопасность</option>
+                <option value="специалитет">
+                  10.05.01 Компьютерная безопасность
+                </option>
+                <option value="специалитет">
+                  10.05.03 Информационная безопасность
+                  автоматизированных систем
+                </option>
+                <option>
+                  15.03.04 Автоматизация технологических процессов и
+                  производств
+                </option>
+                <option>27.03.03 Системный анализ и управление</option>
+                <option>
+                  27.03.04 Управление в технических системах
                 </option>
               </select>
             </div>

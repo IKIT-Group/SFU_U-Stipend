@@ -1,21 +1,22 @@
 import React from 'react';
 import styles from './Sources.module.scss'
 import clsx from "clsx";
+import Title from "../../components/Title/index.js";
 
 const Sources = () => {
+  const ariaLabel = "sources-title"
+
   return (
     <section
       className={styles.sources}
       id="sources"
-      aria-labelledby="sources-title"
+      aria-labelledby={ariaLabel}
     >
       <div className={clsx(styles.sourcesInner, 'container')}>
-        <h2
-          className={styles.sourcesTitle}
-          aria-label="sources-title"
-        >
-          Как происходит расчёт?
-        </h2>
+        <Title
+          title="Как происходит расчёт?"
+          ariaLabel={ariaLabel}
+        />
         <p className={styles.sourcesDescription}>
           Наш сервис получает информацию о видах и размерах стипендий из
           официальных документов и сайта Сибирского Федерального Университета.

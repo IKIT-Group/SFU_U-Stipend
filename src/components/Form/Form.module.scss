@@ -27,10 +27,6 @@
       border-bottom: rem(2) solid var(--color-blue-dark);
       padding-bottom: rem(20);
     }
-
-    @include mobile-s {
-      align-self: auto;
-    }
   }
 
   &Legend {

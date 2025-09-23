@@ -15,7 +15,6 @@ const BurgerButton = (props) => {
       aria-label="Open menu"
       title="Open menu"
       onClick={onClick}
-      data-js-header-burger-button
     >
       <span className={styles.burgerButtonLine}></span>
       <span className={styles.burgerButtonLine}></span>

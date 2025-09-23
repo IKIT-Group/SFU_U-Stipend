@@ -6,15 +6,12 @@
   height: 100vh;
   line-height: 1.4;
   max-height: rem(970);
-  background-image:
-    linear-gradient(0deg, rgba(0, 0, 0, 0.60) 0%, rgba(0, 0, 0, 0.60) 100%),
-    url("../../assets/images/bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../../assets/images/bg.jpg") center/cover no-repeat;
   display: flex;
   align-items: flex-end;
-  padding-block: fluid(150, 80);
+  padding-block: fluid(150, 50);
 
   &Inner {
     width: 100%;
@@ -26,13 +23,12 @@
     row-gap: fluid(25, 10);
     max-width: rem(1130);
     color: var(--color-white);
-    text-shadow: var(--text-shadow);
   }
 
   &Title {
     font-family: var(--font-family-base), sans-serif;
     font-weight: 600;
-    font-size: fluid(40, 24);
+    font-size: fluid(40, 20);
 
     .isOrange {
       color: var(--color-pumpkin);
@@ -40,6 +36,6 @@
   }
 
   &Description {
-    font-size: fluid(24, 16);
+    font-size: fluid(24, 14);
   }
 }
