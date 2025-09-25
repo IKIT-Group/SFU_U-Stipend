@@ -1,8 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styles from './Form.module.scss'
 import clsx from "clsx";
+import { directionsData } from "../../utils/directions.js";
 
 const Form = (props) => {
+  const {
+    className = '',
+    onSubmitForm,
+  } = props
+
   const [status, setStatus] = useState('student')
   const [course, setCourse] = useState("")
   const [direction, setDirection] = useState("")
@@ -11,34 +17,52 @@ const Form = (props) => {
   const [amountOfPoints, setAmountOfPoints] = useState('')
   const [directionOfApplicant, setDirectionOfApplicant] = useState('')
   const [basisOfLearningApplicant, setBasisOfLearningApplicant] = useState('')
-  const [isInOrganization, setIsInOrganization] = useState(false)
+  const [isUnion, setIsUnion] = useState(false)
   const [isOrphan, setIsOrphan] = useState(false)
 
   const handleSubmitStudent = (event) => {
     event.preventDefault();
-    console.log({
+    onSubmitForm({
       status,
       course,
       direction,
       basis,
       evaluations,
-      isInOrganization,
+      isUnion,
       isOrphan
     });
   };
 
   const handleSubmitApplicant = (event) => {
     event.preventDefault();
-    console.log({
+    onSubmitForm({
+      status,
       amountOfPoints,
       directionOfApplicant,
-      basisOfLearningApplicant
+      basisOfLearningApplicant,
     });
   };
 
-  const {
-    className = ''
-  } = props
+  const handleChangeStatus = (newStatus) => {
+    setStatus(newStatus)
+
+    if (newStatus === 'student') {
+      setAmountOfPoints('');
+      setDirectionOfApplicant('');
+      setBasisOfLearningApplicant('');
+    }
+
+    if (newStatus === 'applicant') {
+      setCourse('');
+      setDirection('');
+      setBasis('');
+      setEvaluations('');
+      setIsUnion(false);
+      setIsOrphan(false);
+    }
+
+    onSubmitForm(null)
+  }
 
   return (
     <form onSubmit={status === 'student' ? handleSubmitStudent : handleSubmitApplicant } className={clsx(className, styles.form)}>
@@ -57,7 +81,7 @@ const Form = (props) => {
                 type="button"
                 value='student'
                 onClick={() => {
-                  setStatus('student')
+                  handleChangeStatus('student')
                 }}
                 id="student"
                 name="status"
@@ -69,7 +93,7 @@ const Form = (props) => {
                 type="button"
                 value='applicant'
                 onClick={() => {
-                  setStatus('applicant')
+                  handleChangeStatus('applicant')
                 }}
                 id="applicant"
                 name="status"
@@ -108,12 +132,12 @@ const Form = (props) => {
                   >
                     Выберите курс обучения
                   </option>
-                  <option value="1">1 курс</option>
-                  <option value="2">2 курс</option>
-                  <option value="3">3 курс</option>
-                  <option value="4">4 курс</option>
-                  <option value="5">5 курс</option>
-                  <option value="6">6 курс</option>
+                  {Array.from({ length: direction ? directionsData.find(d => d.name === direction).maxCourse : 6 }, (_, i) => i + 1)
+                    .map((course) => (
+                      <option key={course} value={course}>
+                        {course} курс
+                      </option>
+                    ))}
                 </select>
               </div>
             </div>
@@ -141,19 +165,19 @@ const Form = (props) => {
                     value=""
                     disabled
                     hidden
-                  >Выберите направление подготовки
+                  >
+                    Выберите направление подготовки
                   </option>
-                  <option value="01.03.04">01.03.04 Прикладная математика</option>
-                  <option value="09.03.01">09.03.01 Информатика и вычислительная техника</option>
-                  <option value="09.03.02">09.03.02 Информационные системы и технологии</option>
-                  <option value="09.03.03">09.03.03 Прикладная информатика</option>
-                  <option value="09.03.04">09.03.04 Программная инженерия</option>
-                  <option value="10.03.01">10.03.01 Информационная безопасность</option>
-                  <option value="10.05.01">10.05.01 Компьютерная безопасность</option>
-                  <option value="10.05.03">10.05.03 Информационная безопасность автоматизированных систем</option>
-                  <option value="15.03.04">15.03.04 Автоматизация технологических процессов и производств</option>
-                  <option value="27.03.03">27.03.03 Системный анализ и управление</option>
-                  <option value="27.03.04">27.03.04 Управление в технических системах</option>
+                  {directionsData.map((directionData) => (
+                    <option
+                      value={directionData.name}
+                      key={directionData.name}
+                      disabled={course > directionData.maxCourse}
+                      hidden={course > directionData.maxCourse}
+                    >
+                      {directionData.name}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
@@ -347,8 +371,8 @@ const Form = (props) => {
                 <input
                   id="student-organization"
                   type="checkbox"
-                  checked={isInOrganization}
-                  onChange={event => setIsInOrganization(event.target.checked)}
+                  checked={isUnion}
+                  onChange={event => setIsUnion(event.target.checked)}
                   className={styles.formCheckboxInput}
                 />
                 <span className={styles.formCheckboxLabel}>Состою в профсоюзной организации студентов</span>

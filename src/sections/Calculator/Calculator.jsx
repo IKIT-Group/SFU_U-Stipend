@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Calculator.module.scss'
 import clsx from "clsx";
 import Form from "../../components/Form/index.js";
 import Result from "../../components/Result/index.js";
 import Title from "../../components/Title/index.js";
+import {calculateScholarship} from "../../utils/calculateScholarship.js";
 
 const Calculator = () => {
   const ariaLabel = "calculator-title"
+
+  const [formData, setFormData] = useState(null)
+  const [calculatedData, setCalculatedData] = useState(null)
+
+  const handleFormSubmit = (data) => {
+    if (data) {
+      setCalculatedData(calculateScholarship(data));
+    } else {
+      setCalculatedData(null); // сброс результата
+    }
+  }
 
   return (
     <section
@@ -21,9 +33,14 @@ const Calculator = () => {
           isWhite
         />
         <div className={styles.calculatorWindows}>
-          <Form className={styles.calculatorForm} />
+          <Form
+            onSubmitForm={handleFormSubmit}
+          />
 
-          <Result className={styles.calculatorResult} />
+          <Result
+            className={styles.calculatorResult}
+            data={calculatedData}
+          />
         </div>
       </div>
     </section>
