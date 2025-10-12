@@ -63,14 +63,14 @@ const Result = (props) => {
             ))}
           </ul>
           <div className={clsx(styles.resultOutput, styles.resultBlock)}>
-            <div className={styles.resultTotal}>
+            {/* <div className={styles.resultTotal}>
               <span className={styles.resultTotalText}>Гарантированная сумма стипендии</span>
               <span className={styles.resultTotalAmount}>{Math.round(data.guaranteedSum)} ₽</span>
             </div>
             <div className={styles.resultTotal}>
               <span className={styles.resultTotalText}>Возможна сумма стипендии</span>
               <span className={styles.resultPossibleAmount}>{Math.round(data.possibleSum)} ₽</span>
-            </div>
+            </div> */}
             <p className={styles.resultNote}>
               Расчёты являются примерными и могут отличаться от реальных.
             </p>
