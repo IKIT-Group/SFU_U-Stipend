@@ -1,9 +1,13 @@
 {
   "name": "u-stipend",
-  "private": true,
   "version": "0.0.0",
-  "homepage": "https://ikit-group.github.io/SFU_U-Stipend/",
   "type": "module",
+  "private": true,
+  "homepage": "https://ikit-group.github.io/SFU_U-Stipend/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IKIT-Group/SFU_U-Stipend"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
