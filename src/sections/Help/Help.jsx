@@ -10,21 +10,27 @@ const Help = () => {
     {
       id: 1,
       title: "Как оформить социальную стипендию?",
-      href: new URL("../../assets/documents/Социалка.pdf", import.meta.url).href,
+      href: new URL("../../assets/documents/Государственная социальная стипендия.pdf", import.meta.url).href,
       imgSrc: new URL("../../assets/images/help/1.jpg", import.meta.url).href,
     },
-    // {
-    //   id: 2,
-    //   title: "Как оформить материальную помощь?",
-    //   href: new URL("../../assets/documents/Социалка.pdf", import.meta.url).href,
-    //   imgSrc: new URL("../../assets/images/help/2.jpg", import.meta.url).href,
-    // },
-    // {
-    //   id: 3,
-    //   title: "Как оформить краевую стипендию?",
-    //   href: new URL("../../assets/documents/Социалка.pdf", import.meta.url).href,
-    //   imgSrc: new URL("../../assets/images/help/3.jpg", import.meta.url).href,
-    // },
+    {
+      id: 2,
+      title: "Как оформить краевую именную стипендию?",
+      href: new URL("../../assets/documents/Краевая именная стипендия.pdf", import.meta.url).href,
+      imgSrc: new URL("../../assets/images/help/2.jpg", import.meta.url).href,
+    },
+    {
+      id: 3,
+      title: "Как оформить стипендию правительства РФ?",
+      href: new URL("../../assets/documents/Стипендия правительства РФ.pdf", import.meta.url).href,
+      imgSrc: new URL("../../assets/images/help/3.jpg", import.meta.url).href,
+    },
+    {
+      id: 4,
+      title: "Как оформить повышенную академическую стипендию?",
+      href: new URL("../../assets/documents/Повышенная государственная академическая стипендия.pdf", import.meta.url).href,
+      imgSrc: new URL("../../assets/images/help/4.jpg", import.meta.url).href,
+    },
   ]
 
   return (
