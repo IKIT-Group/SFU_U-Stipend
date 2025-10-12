@@ -1,4 +1,5 @@
 @use "/src/app/styles/helpers/functions.scss" as *;
+@use "/src/app/styles/helpers/media.scss" as *;
 
 .documents {
   background-color: var(--color-blue-sky);
@@ -19,14 +20,9 @@
   }
 
   &Item {
-    display: flex;
-    padding-block: fluid(44, 22);
-    padding-inline: fluid(30, 15) fluid(48, 10);
     background-color: var(--color-background);
     box-shadow: var(--shadow);
     border-radius: rem(30);
-    align-items: center;
-    justify-content: space-between;
   }
 
   &Content {
@@ -35,7 +31,7 @@
     row-gap: fluid(10, 6);
 
     &Title {
-      font-size: fluid(36, 16);
+      font-size: fluid(36, 14);
       font-weight: 600;
       font-family: var(--font-family-base), sans-serif;
     }
@@ -47,9 +43,18 @@
   }
 
   &Download {
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    padding-block: fluid(44, 22);
+    padding-inline: fluid(30, 15) fluid(48, 10);
+    align-items: center;
+    justify-content: space-between;
+    color: inherit;
     svg {
       width: fluid(112, 40);
       height: fluid(112, 40);
+      flex-shrink: 0;
     }
   }
 }
