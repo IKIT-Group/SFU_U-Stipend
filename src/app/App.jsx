@@ -11,14 +11,14 @@ import About from "../sections/About/index.js";
 function App() {
   return (
     <>
-      <Header />
-      <Preview />
+      {/*<Header />
+      <Preview />*/}
       <Calculator />
-      <Sources />
+      {/*<Sources />
       <Help />
       <Documents />
       <About />
-      <Footer />
+      <Footer />*/}
     </>
   )
 }

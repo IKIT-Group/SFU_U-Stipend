@@ -44,25 +44,30 @@ const Form = (props) => {
   };
 
   const handleChangeStatus = (newStatus) => {
-    setStatus(newStatus)
+    setStatus(newStatus);
+    onSubmitForm(null);
+  };
 
-    if (newStatus === 'student') {
-      setAmountOfPoints('');
-      setDirectionOfApplicant('');
-      setBasisOfLearningApplicant('');
-    }
-
-    if (newStatus === 'applicant') {
-      setCourse('');
-      setDirection('');
-      setBasis('');
-      setEvaluations('');
-      setIsUnion(false);
-      setIsOrphan(false);
-    }
-
-    onSubmitForm(null)
-  }
+  // const handleChangeStatus = (newStatus) => {
+  //   setStatus(newStatus)
+  //
+  //   if (newStatus === 'student') {
+  //     setAmountOfPoints('');
+  //     setDirectionOfApplicant('');
+  //     setBasisOfLearningApplicant('');
+  //   }
+  //
+  //   if (newStatus === 'applicant') {
+  //     setCourse('');
+  //     setDirection('');
+  //     setBasis('');
+  //     setEvaluations('');
+  //     setIsUnion(false);
+  //     setIsOrphan(false);
+  //   }
+  //
+  //   onSubmitForm(null)
+  // }
 
   return (
     <form onSubmit={status === 'student' ? handleSubmitStudent : handleSubmitApplicant } className={clsx(className, styles.form)}>
